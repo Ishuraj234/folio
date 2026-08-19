@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folio — One page, every kind of work</title>
+<meta name="description" content="Folio is a minimal, block-based workspace where docs, wikis, and project boards live together. Write, plan, and organize on a single clean page.">
+<meta name="keywords" content="workspace, editor, docs, wiki, project management, productivity tool, notion alternative, block editor">
+<meta property="og:title" content="Folio — One page, every kind of work">
+<meta property="og:description" content="A beautiful, minimal block editor. Collaborate, write docs, manage tables, and organize your work seamlessly.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo"><span class="logo-mark"></span>Folio</div>
+    <nav class="links">
+      <a class="navlink" href="#showcase">Product</a>
+      <a class="navlink" href="#features">Templates</a>
+      <a class="navlink" href="#pricing">Pricing</a>
+      <a class="navlink" href="#honest">Why Folio</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☾</button>
+      <a class="btn btn-ghost" href="#" onclick="return false;">Log in</a>
+      <a class="btn btn-primary" href="#" onclick="return false;">Start writing free</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow"><span class="dot-live"></span>now with connected databases</div>
+  <h1 class="headline">One page. <em>Every</em> kind of work.</h1>
+  <p class="sub">Docs, wikis, and project boards that share the same page — so nothing lives in a tool by itself, and nothing gets rebuilt twice.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="#" onclick="return false;" style="padding:12px 22px; font-size:15px;">Start writing free <span class="arrow">→</span></a>
+    <a class="btn btn-ghost" href="#showcase" style="padding:12px 22px; font-size:15px;">See a real page ↓</a>
+  </div>
+  <p class="hero-note">No credit card. Import from anywhere in one click.</p>
+
+  <div class="demo-frame" id="editorSandbox" tabindex="0">
+    <div class="demo-titlebar">
+      <div class="dot-group">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="demo-status-badge" id="demoStatus">AUTOPLAY</div>
+    </div>
+    <div class="demo-body">
+      <div class="demo-doc-title" id="sandboxTitle" contenteditable="true" spellcheck="false">Q3 Launch Plan</div>
+      <div class="demo-instructions" id="sandboxInstructions">Click inside this block to type. Press <code>/</code> to open commands.</div>
+      
+      <div class="sandbox-canvas" id="sandboxCanvas"></div>
+
+      <div class="demo-line" id="sandboxInputLine">
+        <span class="typed-text" id="typedText"></span><span class="cursor-blink" id="cursorBlink"></span>
+      </div>
+      <div class="slash-menu" id="slashMenu">
+        <div class="slash-item active" data-idx="0"><span class="slash-icon">H1</span> Heading</div>
+        <div class="slash-item" data-idx="1"><span class="slash-icon">☑</span> Checklist</div>
+        <div class="slash-item" data-idx="2"><span class="slash-icon">▦</span> Table</div>
+        <div class="slash-item" data-idx="3"><span class="slash-icon">!</span> Callout</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase" id="showcase">
+  <div class="section-head">
+    <div class="section-label">Not a mockup — the actual block model</div>
+    <h2 class="section-title">This is what a page looks like</h2>
+  </div>
+  <div class="doc-mock">
+    <div class="breadcrumb">Workspace / Marketing / Launches</div>
+    <h3 class="title" contenteditable="true" spellcheck="false">Q3 Launch Plan</h3>
+    
+    <div class="props">
+      <div class="prop-wrapper">
+        <span class="prop-pill" id="propOwnerBtn">Owner: <strong id="propOwnerVal">Priya</strong> ▾</span>
+        <div class="prop-dropdown" id="propOwnerDropdown">
+          <div class="dropdown-item">Priya</div>
+          <div class="dropdown-item">Sam</div>
+          <div class="dropdown-item">Ravi</div>
+          <div class="dropdown-item">Maya</div>
+        </div>
+      </div>
+      
+      <div class="prop-wrapper">
+        <span class="prop-pill" id="propStatusBtn">Status: <strong id="propStatusVal">In progress</strong> ▾</span>
+        <div class="prop-dropdown" id="propStatusDropdown">
+          <div class="dropdown-item" data-status="not-started">Not started</div>
+          <div class="dropdown-item" data-status="in-progress">In progress</div>
+          <div class="dropdown-item" data-status="in-review">In review</div>
+          <div class="dropdown-item" data-status="done">Done</div>
+        </div>
+      </div>
+
+      <div class="prop-wrapper">
+        <span class="prop-pill" id="propDueBtn">Due: <strong id="propDueVal">Sep 12</strong> ▾</span>
+        <div class="prop-dropdown" id="propDueDropdown" style="padding: 10px;">
+          <input type="text" class="dropdown-input" id="propDueInput" value="Sep 12" style="width: 80px; font-family: inherit; font-size: 12px; border: 1px solid var(--line); border-radius: 4px; padding: 2px 6px; background: var(--paper-raised); color: var(--ink);">
+        </div>
+      </div>
+    </div>
+
+    <p class="body-p" contenteditable="true" spellcheck="false">Everything for the launch lives on this one page — brief, tasks, and the press list — so nobody's digging through three tools to find the current version.</p>
+
+    <h4 class="sub-h">Checklist</h4>
+    <div class="check-list-container" id="showcaseChecklist">
+      <div class="check-row done"><span class="checkbox checked">✓</span><span class="label" contenteditable="true" spellcheck="false">Finalize positioning doc</span></div>
+      <div class="check-row done"><span class="checkbox checked">✓</span><span class="label" contenteditable="true" spellcheck="false">Brief the design team</span></div>
+      <div class="check-row"><span class="checkbox"></span><span class="label" contenteditable="true" spellcheck="false">Draft press outreach list</span></div>
+    </div>
+
+    <h4 class="sub-h">Callout</h4>
+    <div class="callout" contenteditable="true" spellcheck="false">📌 Legal review is required before anything goes to press — flag @legal at least 5 days out.</div>
+
+    <h4 class="sub-h">Linked table</h4>
+    <div class="table-container">
+      <table class="mini-table" id="showcaseTable">
+        <thead>
+          <tr><th>Channel</th><th>Owner</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td contenteditable="true" spellcheck="false">Blog post</td><td contenteditable="true" spellcheck="false">Priya</td><td contenteditable="true" spellcheck="false">Drafting</td></tr>
+          <tr><td contenteditable="true" spellcheck="false">Email</td><td contenteditable="true" spellcheck="false">Sam</td><td contenteditable="true" spellcheck="false">Not started</td></tr>
+          <tr><td contenteditable="true" spellcheck="false">Press list</td><td contenteditable="true" spellcheck="false">Ravi</td><td contenteditable="true" spellcheck="false">In review</td></tr>
+        </tbody>
+      </table>
+      <div class="table-actions">
+        <button class="btn btn-ghost btn-add-row" id="addRowBtn" style="padding: 6px 12px; font-size: 12px; margin-top: 10px;">+ Add row</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="section-head">
+    <div class="section-label">Three block types, one workspace</div>
+    <h2 class="section-title">Built from the same three primitives</h2>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-type">PAGE</div>
+      <h4>Docs that nest</h4>
+      <p>Write long-form the way you'd write anywhere else, then drop in a sub-page the moment a section needs its own home.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-type">DB</div>
+      <h4>Databases that stay pages</h4>
+      <p>Every row opens into a full page. Filter it like a spreadsheet, read it like a document — same data, either view.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-type">VIEW</div>
+      <h4>Views your team actually uses</h4>
+      <p>Board for engineering, calendar for content, list for everyone else. One source of truth, rendered differently per person.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="section-head">
+    <div class="section-label">Pricing that makes sense</div>
+    <h2 class="section-title">No tricks, no hidden tiers</h2>
+  </div>
+  
+  <div class="pricing-toggle-wrap">
+    <span>Monthly</span>
+    <label class="switch-toggle">
+      <input type="checkbox" id="pricingToggle">
+      <span class="slider"></span>
+    </label>
+    <span>Yearly <span class="discount-badge">Save 20%</span></span>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-tier-title">Free</div>
+      <div class="price-value" id="freePrice">$0</div>
+      <div class="price-period">forever</div>
+      <p class="pricing-desc">Everything you need to write, plan, and organize by yourself or with a small team.</p>
+      <ul class="pricing-features">
+        <li><span class="feature-bullet">✓</span> Unlimited blocks & pages</li>
+        <li><span class="feature-bullet">✓</span> Real-time collaboration (up to 5 guests)</li>
+        <li><span class="feature-bullet">✓</span> Connected databases & basic views</li>
+        <li><span class="feature-bullet">✓</span> Web publishing & export</li>
+      </ul>
+      <a class="btn btn-ghost pricing-btn" href="#" onclick="return false;">Get started free</a>
+    </div>
+
+    <div class="pricing-card premium">
+      <div class="popular-tag">RECOMMENDED</div>
+      <div class="pricing-tier-title">Patron</div>
+      <div class="price-value" id="patronPrice">$4</div>
+      <div class="price-period" id="patronPeriod">per month</div>
+      <p class="pricing-desc">Support independent, private, and tracking-free software development. Get extra options.</p>
+      <ul class="pricing-features">
+        <li><span class="feature-bullet">✓</span> Support independent software</li>
+        <li><span class="feature-bullet">✓</span> Unlimited guests & sharing</li>
+        <li><span class="feature-bullet">✓</span> 100+ beautiful templates</li>
+        <li><span class="feature-bullet">✓</span> Version history (30 days)</li>
+        <li><span class="feature-bullet">✓</span> Special "Patron" badge in app</li>
+      </ul>
+      <a class="btn btn-primary pricing-btn" href="#" onclick="return false;">Become a Patron</a>
+    </div>
+  </div>
+  
+  <p class="pricing-note">Both plans run on the exact same infrastructure. No artificial speed caps, no telemetry, no tracking ads. Ever.</p>
+</section>
+
+<section class="honest" id="honest">
+  <div class="honest-inner">
+    <div class="section-label">Why Folio</div>
+    <h2 class="section-title">We'd rather tell you the truth than a big number</h2>
+    <ul class="honest-list">
+      <li><span class="honest-mark">＊</span><span><strong>We're new.</strong> Folio launched this year. We don't have a seven-figure user count to put in a hero, so we're not going to invent one.</span></li>
+      <li><span class="honest-mark">＊</span><span><strong>The screenshots above are real.</strong> That's an actual page from our own workspace, not a Dribbble shot dressed up as a product screenshot.</span></li>
+      <li><span class="honest-mark">＊</span><span><strong>No fake logos.</strong> When we have real customers we're proud to name, they'll show up here — not before.</span></li>
+      <li><span class="honest-mark">＊</span><span><strong>Free means free.</strong> The free plan isn't a seven-day trial in disguise. Unlimited pages, no card required.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Start on a blank page.<br>See where it goes.</h2>
+  <a class="btn btn-primary" href="#" onclick="return false;" style="padding:14px 28px; font-size:16px;">Start writing free <span class="arrow">→</span></a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="logo"><span class="logo-mark"></span>Folio</div>
+    <div class="footer-links">
+      <a href="#showcase">Product</a>
+      <a href="#features">Templates</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#honest">Why Folio</a>
+      <a href="#" onclick="return false;">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<div id="egg-toast">↑↑↓↓←→←→BA — nice.</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
